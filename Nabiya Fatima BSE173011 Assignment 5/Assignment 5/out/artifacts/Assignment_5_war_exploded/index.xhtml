@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head></h:head>
+<h:body>
+   <p:outputLabel  value="Registration Form" style="font-weight:bold;display:block; text-align:center;font-size: larger" />
+   <br/>
+   <br/>
+
+      <h:form>
+         <p:panelGrid columns="2" cellpadding="5">
+         <p:outputLabel for="username" value="Username" style="font-weight:bold" />
+         <p:inputText id="username" value="#{userBean.u.username}" requiredMessage="username is required" />
+            <p:outputLabel for="firstName" value="First Name:" style="font-weight:bold" />
+            <p:inputText id="firstName" value="#{userBean.u.firstName}" requiredMessage="First Name is required" />
+
+            <p:outputLabel for="lastName" value="Last Name:" style="font-weight:bold" />
+            <p:inputText id="lastName" value="#{userBean.u.lastName}"  requiredMessage="Last Name is required"/>
+
+            <p:outputLabel for="email" value="Email:" style="font-weight:bold" />
+            <p:inputText id="email" value="#{userBean.u.email}" requiredMessage="Email is required" />
+
+            <p:outputLabel for="password" value="Password:" style="font-weight:bold" />
+            <p:password id="password" value="#{userBean.u.password}"  requiredMessage="Password is required" match="conpassowrd" />
+
+            <p:outputLabel for="conpassowrd" value="Confirm Password:" style="font-weight:bold" />
+            <p:password id="conpassowrd" value="#{userBean.u.conPassword}"  requiredMessage="Confirm Password is required" />
+
+            <p:outputLabel for="dob" value="Date Of Birth:" style="font-weight:bold" />
+            <p:inputText id="dob" value="#{userBean.u.dob}" requiredMessage="DOB is required" />
+
+            <p:outputLabel for="gender" value="Gender:" style="font-weight:bold" />
+            <p:inputText id="gender" value="#{userBean.u.gender}" requiredMessage="Gender is required" />
+         </p:panelGrid>
+         <br/>
+         <h:commandButton value="Register" style="font-size: larger" action="#{userBean.savesUser()}" update="display" icon="ui-icon-check"></h:commandButton>
+
+         <br/>
+         <br/>
+         <p:outputLabel for="gender" value="Alredy Have an Account ? " style="font-weight:bold" />
+         <p:commandLink id="ajax"  action="login" style="margin-right:20px;">
+            <h:outputText value="Login" />
+         </p:commandLink>
+
+   </h:form>
+</h:body>
+</html>
